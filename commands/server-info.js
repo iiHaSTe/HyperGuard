@@ -47,7 +47,7 @@ module.exports = {
       ])
       .setColor([255, 255, 0])
       .setFooter({
-        text: "Powred by HAsTe",
+        text: "Powred by "+inter.client.user.username,
         iconURL: inter.client.user.iconURL
       });
     await inter.reply({embeds: [embed]});
