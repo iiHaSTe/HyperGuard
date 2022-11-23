@@ -14,6 +14,7 @@ module.exports = {
     let embed = new EmbedBuilder()
       .setTitle(inter.guild.name)
       .setThumbnail(inter.guild.iconURL() ?? inter.client.user.avatarURL)
+      .setImage(inter.guild.iconURL())
       .addFields([
         {
           inline: true,
