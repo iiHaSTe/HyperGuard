@@ -15,8 +15,8 @@ module.exports = {
     Array.from(inter.guild.roles.cache)
       .sort((role1, role2) => role2[1].rawPosition-role1[1].rawPosition)
       .forEach(role => {
-      allRoles += "<@&"+role[0]+">\n";
-    });
+        allRoles += "<@&"+role[0]+">\n";
+      });
 
     let embed = new EmbedBuilder()
       .setTitle(inter.guild.name)
