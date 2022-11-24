@@ -34,7 +34,9 @@ module.exports = {
       });
     await inter.reply({embeds: [embed]});
     await guild.members.ban(user);
-    await inter.channel.send(`>>> **${user.username}** are \`banned\` :hammer:\nid: || ${user.id} ||`);
+    await inter.channel.send(`>>> **${user.username}** are \`banned\` :hammer:
+**id:** || ${user.id} ||
+**at:** ${new Date().toString()}`);
   }
 }
 
