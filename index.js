@@ -1,4 +1,3 @@
-console.clear();
 require("dotenv").config();
 const {
   Events, Client, GatewayIntentBits, Collection
@@ -15,6 +14,7 @@ const client = new Client({
   ]
 });
 client.commands = new Collection();
+client.modals = new Collection();
 
 // loads slash commands
 const commandsPath = path.join(__dirname, 'commands');
@@ -41,6 +41,21 @@ for (const file of eventFiles) {
 		client.once(event.name, (...args) => event.execute(...args));
 	} else {
 		client.on(event.name, (...args) => event.execute(...args));
+	}
+}
+
+// loads modals scripts
+const modalsPath = path.join(__dirname, 'modals');
+const modalsFiles = fs.readdirSync(modalsPath, ).filter(file => file.endsWith('.js'));
+
+for (const file of modalsFiles) {
+	const filePath = path.join(modalsPath, file);
+	const modalScript = require(filePath);
+
+	if ("targetId" in modalScript && "execute" in modalScript){
+		client.modals.set(modalScript.targetId, modalScript);
+	} else {
+		console.log(`[WARNING] The modal script at ${filePath} is missing a required "targetId" or "execute" property.`);
 	}
 }
 
