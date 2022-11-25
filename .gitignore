@@ -1,4 +1,5 @@
 .env
-database.sql
+*.db
+*.sql
 node_modules/
 
