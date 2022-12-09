@@ -13,7 +13,7 @@ module.exports = {
   async execute(inter){
     let embed = new EmbedBuilder()
       .setTitle(inter.guild.name)
-      .setThumbnail(inter.guild.iconURL() ?? inter.client.user.avatarURL)
+      .setThumbnail(inter.guild.iconURL() ?? inter.client.user.avatarURL())
       .setImage(inter.guild.iconURL())
       .addFields([
         {

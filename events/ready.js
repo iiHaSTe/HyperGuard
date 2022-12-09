@@ -10,6 +10,6 @@ module.exports = {
 		user.setUsername("HyperGuard");
 		user.setStatus("idle");
 		
-  	console.log(`I'm ready woooooha ${client.user.username}`);
+  	    console.log(`I'm ready woooooha ${client.user.username}`);
 	}
 }
